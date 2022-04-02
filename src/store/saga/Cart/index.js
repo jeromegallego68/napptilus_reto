@@ -16,7 +16,7 @@ function* addProductToCart(data) {
 
         yield put({
             type: cartActions.UPDATE_CACHE_CART,
-            payload: cart,
+            payload: cart.data,
         });
 
     } catch (e) {

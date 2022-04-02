@@ -16,7 +16,7 @@ function* getProducts() {
 
         yield put({
             type: productActions.UPDATE_CACHE_PRODUCTS,
-            payload: products,
+            payload: products.data,
         });
 
     } catch (e) {
@@ -30,7 +30,7 @@ function* getProductDetails(data) {
 
         yield put({
             type: productActions.UPDATE_CACHE_PRODUCT_DETAILS,
-            payload: product_details,
+            payload: product_details.data,
         });
 
     } catch (e) {
