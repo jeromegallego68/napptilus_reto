@@ -4,7 +4,7 @@ import {
     takeEvery
 } from 'redux-saga/effects';
 
-import * as ApiService from 'services/api';
+import * as ApiService from '../../../services/api';
 import * as productActions from '../../modules/Product/actions';
 
 /** ********************************************** */
