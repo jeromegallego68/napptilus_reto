@@ -38,6 +38,9 @@ function* getProductDetails(data) {
     }
 }
 
+// Export for testing
+export { getProducts, getProductDetails };
+
 /** ********************************************** */
 /** Watcher **/
 /** ********************************************** */
