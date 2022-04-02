@@ -10,9 +10,9 @@ import * as productActions from '../../modules/Product/actions';
 /** ********************************************** */
 /** Sagas **/
 /** ********************************************** */
-function* getProducts(data) {
+function* getProducts() {
     try {
-        const products = yield call(ApiService.GetProducts, data.payload);
+        const products = yield call(ApiService.GetProducts);
 
         yield put({
             type: productActions.UPDATE_CACHE_PRODUCTS,
@@ -26,7 +26,7 @@ function* getProducts(data) {
 
 function* getProductDetails(data) {
     try {
-        const product_details = yield call(ApiService.GetProductDetails, data.payload);
+        const product_details = yield call(ApiService.GetProductDetails, data.payload.productID);
 
         yield put({
             type: productActions.UPDATE_CACHE_PRODUCT_DETAILS,
