@@ -49,10 +49,30 @@
 #header .menu .cart {
     display: inline-block;
     vertical-align: middle;
+
+    position: relative;
 }
 
 #header .menu .cart .react-icons {
     color: var(--color-primary-variant);
 
     font-size: 1.6rem;
+}
+
+#header .menu .cart .cart-count {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: -60%;
+    right: -60%;
+
+    background-color: var(--color-primary-variant);
+    color: var(--color-primary);
+
+    height: 20px;
+    width: 20px;
+
+    border-radius: 5rem;
 }
