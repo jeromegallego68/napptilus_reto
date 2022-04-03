@@ -1,0 +1,50 @@
+#header {
+    background-color: var(--color-bg-variant);
+
+}
+
+/* ================ LOGO ================= */
+#header .logo {
+    display: inline-block;
+    vertical-align: middle;
+    width: 30%;
+}
+
+#header .logo img {
+    width: 100px;
+}
+
+/* ================ MENU ================= */
+#header .menu {
+    display: inline-block;
+    vertical-align: middle;
+    width: 70%;
+}
+
+#header .menu a {
+    color: var(--color-primary-variant);
+
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.4rem;
+
+    padding: 1rem;
+
+    transition: var(--transition);
+}
+
+#header .menu a:hover {
+    opacity: 0.6;
+}
+
+/* ================ CART ================= */
+#header .menu .cart {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#header .menu .cart .react-icons {
+    color: var(--color-primary-variant);
+
+    font-size: 1.6rem;
+}
