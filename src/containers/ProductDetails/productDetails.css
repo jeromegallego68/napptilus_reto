@@ -56,6 +56,11 @@
     cursor: pointer;
 }
 
+.product-details .content .actions form button:disabled {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
 /* ================ MEDIA QUERIES (SMALL DEVICES) ================= */
 @media screen and (max-width: 600px) {
     .product-details {

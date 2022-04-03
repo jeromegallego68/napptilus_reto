@@ -1,29 +1,17 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, useParams } from 'react-router-dom'
 import { CURRENCY } from '../../constants'
+import { addProductToCart } from '../../store/modules/Cart/actions'
 import { getProductDetails } from '../../store/modules/Product/actions'
 import './productDetails.css'
 
 const baseClass = "product-details"
 
 const ProductDetails = () => {
+    const [state, setState] = useState({})
     const dispatch = useDispatch()
     const { productID } = useParams()
-
-    useEffect(() => {
-        dispatch(getProductDetails({ productID }))
-    }, [])
-
-    const handleValueChange = (e) => {
-        const { name, value } = e.target
-        console.log(name)
-        console.log(value)
-    }
-
-    const submitForm = () => {
-
-    }
 
     const productDetails = useSelector((state) => state.Product.product_details)
 
@@ -43,6 +31,46 @@ const ProductDetails = () => {
         weight,
         options
     } = productDetails
+
+    useEffect(() => {
+        dispatch(getProductDetails({ productID }))
+    }, [])
+
+    useEffect(() => {
+        // If only one option then select it by default
+        if (options?.colors.length === 1) {
+            setState({
+                ...state,
+                colors: options.colors[0].code
+            })
+        }
+
+        if (options?.storages.length === 1) {
+            setState({
+                ...state,
+                storages: options.storages[0].code
+            })
+        }
+    }, [options])
+
+    const handleValueChange = (e) => {
+        const { name, value } = e.target
+
+        setState({
+            ...state,
+            [name]: Number(value)
+        })
+    }
+
+    const submitForm = (e) => {
+        e.preventDefault();
+
+        dispatch(addProductToCart({
+            id: productID,
+            colorCode: state.colors,
+            storageCode: state.storages
+        }))
+    }
 
     return (
         <div className={baseClass}>
@@ -88,8 +116,12 @@ const ProductDetails = () => {
                 </div>
                 <div className='actions'>
                     <form onSubmit={submitForm}>
-                        <select name="colors" onChange={handleValueChange}>
-                            <option value="">--Please choose an option--</option>
+                        <select
+                            name="colors"
+                            value={state.colors}
+                            onChange={handleValueChange}
+                        >
+                            <option value="">Por favor, elija una opción</option>
                             {options?.colors.map((color, index) => {
                                 return <option
                                     key={`color_${index}`}
@@ -99,8 +131,12 @@ const ProductDetails = () => {
                                 </option>
                             })}
                         </select>
-                        <select name="storages" onChange={handleValueChange}>
-                            <option value="">--Please choose an option--</option>
+                        <select
+                            name="storages"
+                            value={state.storages}
+                            onChange={handleValueChange}
+                        >
+                            <option value="">Por favor, elija una opción</option>
                             {options?.storages.map((color, index) => {
                                 return <option
                                     key={`color_${index}`}
@@ -110,7 +146,7 @@ const ProductDetails = () => {
                                 </option>
                             })}
                         </select>
-                        <button type='submit'>Añadir</button>
+                        <button disabled={!state.colors || !state.storages} type='submit'>Añadir</button>
                     </form>
                 </div>
             </div>
