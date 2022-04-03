@@ -4,6 +4,10 @@
     grid-gap: 1rem;
 
     padding: 1rem 0;
+
+    /* Fix width for big screen*/
+    max-width: 1600px;
+    margin: 0 auto;
 }
 
 /* ================ IMAGE ================= */
@@ -65,5 +69,7 @@
 @media screen and (max-width: 600px) {
     .product-details {
         grid-template-columns: 1fr;
+
+        padding: 1rem 2rem;
     }
 }
