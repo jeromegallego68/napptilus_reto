@@ -1,0 +1,64 @@
+.product-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+
+    padding: 1rem 0;
+}
+
+/* ================ IMAGE ================= */
+.product-details .image {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+/* ================ DESCRIPTION ================= */
+
+.product-details .content .description {
+    color: var(--color-primary);
+}
+
+.product-details .content .description .attributes label {
+    display: inline-block;
+    width: 120px;
+
+    border-right: 1px solid var(--color-primary);
+
+    margin: 0.4rem 1rem 0.4rem 0;
+}
+
+.product-details .content .description .attributes .value {
+    display: inline-block;
+}
+
+/* ================ ACTIONS ================= */
+
+.product-details .content .actions form select,
+.product-details .content .actions form button {
+    border-radius: 0.4rem;
+
+    margin: 1rem 0.2rem;
+    padding: 0.4rem;
+
+    background-color: var(--color-white);
+    color: var(--color-primary);
+}
+
+.product-details .content .actions form select {
+    display: inline-block;
+    width: 200px;
+}
+
+.product-details .content .actions form button {
+    display: inline-block;
+
+    cursor: pointer;
+}
+
+/* ================ MEDIA QUERIES (SMALL DEVICES) ================= */
+@media screen and (max-width: 600px) {
+    .product-details {
+        grid-template-columns: 1fr;
+    }
+}
