@@ -1,13 +1,32 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@300;400;500;600&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	box-sizing: border-box;
+	list-style: none;
+	text-decoration: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+	--color-bg: #d9d9d9;
+	--color-bg-variant: #3c6e71;
+	--color-primary: #02516B;
+	--color-primary-variant: #DE9801;
+	--color-white: #FFFFFF;
+	--color-light: #E5E5E5;
+
+	--transition: all 400ms ease;
+}
+
+body {
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+	background: var(--color-bg);
+	color: var(--color-white);
+}
+
+.react-icons {
+	vertical-align: middle;
 }
