@@ -1,6 +1,6 @@
 #footer {
     position: absolute;
-    bottom: - var(--footer-height);
+    bottom: calc(0px - var(--footer-height));
     left: 0;
 
     width: 100%;
