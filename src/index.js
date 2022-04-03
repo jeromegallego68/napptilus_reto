@@ -1,4 +1,4 @@
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -17,7 +17,7 @@ const enhancer = compose(applyMiddleware(...middlewares));
 const store = createStore(reducer, enhancer);
 store.sagaTask = sagaMiddleware.run(rootSaga);
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
+const root = createRoot(document.getElementById("root"));
 
 root.render(
   <Provider store={store}>
