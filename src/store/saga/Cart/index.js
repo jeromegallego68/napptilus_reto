@@ -24,6 +24,9 @@ function* addProductToCart(data) {
     }
 }
 
+// Export for testing
+export { addProductToCart };
+
 /** ********************************************** */
 /** Watcher **/
 /** ********************************************** */
