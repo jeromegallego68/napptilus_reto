@@ -19,6 +19,7 @@
 	--color-light: #E5E5E5;
 
 	--header-height: 100px;
+	--footer-height: 40px;
 
 	--transition: all 400ms ease;
 }
@@ -29,6 +30,7 @@ body {
 	color: var(--color-white);
 
 	margin-top: var(--header-height);
+	margin-bottom: var(--footer-height);
 }
 
 .react-icons {
