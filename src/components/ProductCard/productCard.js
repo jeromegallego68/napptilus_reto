@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 
+import { CURRENCY } from '../../constants';
+
 import './productCard.css'
 
 const baseClass = 'product-card'
@@ -10,8 +12,6 @@ const ProductCard = (
 ) => {
     const navigate = useNavigate();
     const { id, brand, imgUrl, model, price } = data
-    const currency = "€"
-
 
     return (
         <div className={baseClass} onClick={() => navigate(`/product/${id}`)}>
@@ -29,7 +29,7 @@ const ProductCard = (
                     </div>
                 </div>
                 <div className='price'>
-                    {`${price} ${price ? currency : ''}`}
+                    {`${price} ${price ? CURRENCY : ''}`}
                 </div>
             </div>
         </div>
