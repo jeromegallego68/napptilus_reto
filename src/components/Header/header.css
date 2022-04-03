@@ -1,6 +1,12 @@
 #header {
-    background-color: var(--color-bg-variant);
+    position: fixed;
+    top: 0;
+    left: 0;
 
+    width: 100%;
+    height: var(--header-height);
+
+    background-color: var(--color-bg-variant);
 }
 
 /* ================ LOGO ================= */

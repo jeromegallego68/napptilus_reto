@@ -18,6 +18,8 @@
 	--color-white: #FFFFFF;
 	--color-light: #E5E5E5;
 
+	--header-height: 100px;
+
 	--transition: all 400ms ease;
 }
 
@@ -25,6 +27,8 @@ body {
 	font-family: 'Yanone Kaffeesatz', sans-serif;
 	background: var(--color-bg);
 	color: var(--color-white);
+
+	margin-top: var(--header-height);
 }
 
 .react-icons {
