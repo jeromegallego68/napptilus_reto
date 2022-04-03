@@ -6,6 +6,8 @@
     width: 100%;
     height: var(--header-height);
 
+    text-align: center;
+
     background-color: var(--color-bg-variant);
 }
 
