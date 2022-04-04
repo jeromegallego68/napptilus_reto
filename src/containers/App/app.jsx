@@ -5,14 +5,7 @@ import './app.css';
 import Header from '../../components/Header/header';
 import Footer from '../../components/Footer/footer';
 
-import ProductList from '../ProductList/productList';
-import ProductDetails from '../ProductDetails/productDetails';
-
-const routes = [
-	{ path: '/', component: <ProductList />, name: 'product list' },
-	{ path: '/product', component: <ProductList />, name: 'product list' },
-	{ path: '/product/:productID', component: <ProductDetails />, name: 'product details' },
-]
+import { routes } from '../../routes';
 
 function App() {
 	return (
