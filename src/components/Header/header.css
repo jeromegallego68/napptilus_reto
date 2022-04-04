@@ -88,3 +88,7 @@
     content: " > ";
     color: var(--color-primary);
 }
+
+.breadcrumbs a.active {
+    color: var(--color-primary-variant);
+}
