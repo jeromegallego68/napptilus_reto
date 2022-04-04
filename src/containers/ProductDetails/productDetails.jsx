@@ -1,15 +1,15 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink, useParams } from 'react-router-dom'
 import { CURRENCY } from '../../constants'
 import { addProductToCart } from '../../store/modules/Cart/actions'
 import { getProductDetails } from '../../store/modules/Product/actions'
 import './productDetails.css'
+import ProductDetailsActions from './productDetailsActions'
 
 const baseClass = "product-details"
 
 const ProductDetails = () => {
-    const [state, setState] = useState({})
     const dispatch = useDispatch()
     const { productID } = useParams()
 
@@ -36,39 +36,10 @@ const ProductDetails = () => {
         dispatch(getProductDetails({ productID }))
     }, [])
 
-    useEffect(() => {
-        // If only one option then select it by default
-        if (options?.colors.length === 1) {
-            setState({
-                ...state,
-                colors: options.colors[0].code
-            })
-        }
-
-        if (options?.storages.length === 1) {
-            setState({
-                ...state,
-                storages: options.storages[0].code
-            })
-        }
-    }, [options])
-
-    const handleValueChange = (e) => {
-        const { name, value } = e.target
-
-        setState({
-            ...state,
-            [name]: Number(value)
-        })
-    }
-
-    const submitForm = (e) => {
-        e.preventDefault();
-
+    const submitForm = (data) => {
         dispatch(addProductToCart({
             id: productID,
-            colorCode: state.colors,
-            storageCode: state.storages
+            ...data
         }))
     }
 
@@ -114,41 +85,10 @@ const ProductDetails = () => {
                         <label>Peso</label> <div className='value'>{weight}</div>
                     </div>
                 </div>
-                <div className='actions'>
-                    <form onSubmit={submitForm}>
-                        <select
-                            name="colors"
-                            value={state.colors}
-                            onChange={handleValueChange}
-                        >
-                            <option value="">Por favor, elija una opción</option>
-                            {options?.colors.map((color, index) => {
-                                return <option
-                                    key={`color_${index}`}
-                                    value={color.code}
-                                >
-                                    {color.name}
-                                </option>
-                            })}
-                        </select>
-                        <select
-                            name="storages"
-                            value={state.storages}
-                            onChange={handleValueChange}
-                        >
-                            <option value="">Por favor, elija una opción</option>
-                            {options?.storages.map((color, index) => {
-                                return <option
-                                    key={`color_${index}`}
-                                    value={color.code}
-                                >
-                                    {color.name}
-                                </option>
-                            })}
-                        </select>
-                        <button disabled={!state.colors || !state.storages} type='submit'>Añadir</button>
-                    </form>
-                </div>
+                <ProductDetailsActions
+                    options={options}
+                    handleSubmitForm={submitForm}
+                />
             </div>
         </div>
     )
