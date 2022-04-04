@@ -10,6 +10,7 @@ import ProductDetails from '../ProductDetails/productDetails';
 
 const routes = [
 	{ path: '/', component: <ProductList />, name: 'product list' },
+	{ path: '/product', component: <ProductList />, name: 'product list' },
 	{ path: '/product/:productID', component: <ProductDetails />, name: 'product details' },
 ]
 
