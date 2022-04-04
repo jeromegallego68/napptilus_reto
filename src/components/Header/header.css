@@ -9,6 +9,8 @@
     text-align: center;
 
     background-color: var(--color-bg-variant);
+
+    z-index: 1;
 }
 
 /* ================ LOGO ================= */
