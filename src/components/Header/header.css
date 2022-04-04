@@ -78,17 +78,3 @@
 
     border-radius: 5rem;
 }
-
-/* ================ BREADCRUMBS ================= */
-.breadcrumbs {
-    height: var(--breadcrumbs-height);
-}
-
-.breadcrumbs span:not(:last-child):after {
-    content: " > ";
-    color: var(--color-primary);
-}
-
-.breadcrumbs a.active {
-    color: var(--color-primary-variant);
-}
