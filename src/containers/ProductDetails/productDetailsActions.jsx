@@ -43,7 +43,7 @@ const ProductDetailsActions = ({
     }
 
     return (
-        <div className='actions'>
+        <div className='actions' data-testid="product-details-actions">
             <form onSubmit={submitForm}>
                 <select
                     name="colors"

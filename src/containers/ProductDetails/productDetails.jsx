@@ -30,7 +30,7 @@ const ProductDetails = () => {
         dimentions,
         weight,
         options
-    } = productDetails
+    } = productDetails || {}
 
     useEffect(() => {
         dispatch(getProductDetails({ productID }))
@@ -49,8 +49,8 @@ const ProductDetails = () => {
                 <img src={imgUrl} alt="product image" />
             </div>
             <div className='content'>
-                <NavLink to="/">Ver la lista de productos</NavLink>
-                <div className='description'>
+                <NavLink to="/product">Ver la lista de productos</NavLink>
+                <div className='description' data-testid="product-details-description">
                     <div className='attributes'>
                         <label>Marca</label> <div className='value'>{brand}</div>
                     </div>
