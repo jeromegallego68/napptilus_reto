@@ -31,7 +31,7 @@ const ProductList = () => {
                 />
             </div>
             <div className={`${baseClass}__container`}>
-                {productsFiltered.map((product, index) => {
+                {productsFiltered?.map((product, index) => {
                     return <ProductCard
                         {...product}
                         key={`product_${index}`}
