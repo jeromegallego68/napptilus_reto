@@ -1,10 +1,16 @@
 .breadcrumbs {
-    height: var(--breadcrumbs-height);
+    position: absolute;
+    bottom: 0.2rem;
+    right: 2rem;
 }
 
 .breadcrumbs span:not(:last-child):after {
     content: " > ";
     color: var(--color-primary);
+}
+
+.breadcrumbs a {
+    color: var(--color-light);
 }
 
 .breadcrumbs a.active {
