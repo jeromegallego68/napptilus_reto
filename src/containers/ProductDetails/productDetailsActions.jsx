@@ -49,8 +49,9 @@ const ProductDetailsActions = ({
                     name="colors"
                     value={state.colors}
                     onChange={handleValueChange}
+                    data-testid="product-details-actions-select-colors"
                 >
-                    <option value="">Por favor, elija una opción</option>
+                    <option value={""}>Por favor, elija una opción</option>
                     {options?.colors.map((color, index) => {
                         return <option
                             key={`color_${index}`}
@@ -64,6 +65,7 @@ const ProductDetailsActions = ({
                     name="storages"
                     value={state.storages}
                     onChange={handleValueChange}
+                    data-testid="product-details-actions-select-storages"
                 >
                     <option value="">Por favor, elija una opción</option>
                     {options?.storages.map((color, index) => {
@@ -75,7 +77,11 @@ const ProductDetailsActions = ({
                         </option>
                     })}
                 </select>
-                <button disabled={!state.colors || !state.storages} type='submit'>Añadir</button>
+                <button
+                    disabled={!state.colors || !state.storages}
+                    type='submit'
+                    data-testid="product-details-actions-button-submit"
+                >Añadir</button>
             </form>
         </div>
     )
