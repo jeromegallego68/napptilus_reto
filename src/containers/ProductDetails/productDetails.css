@@ -72,4 +72,10 @@
 
         padding: 1rem 2rem;
     }
+
+    .product-details .content .actions form select,
+    .product-details .content .actions form button {
+        width: 100%;
+        margin: 0.4rem 0.2rem;
+    }
 }
