@@ -2,7 +2,7 @@ import './footer.css'
 
 const Footer = () => {
     return (
-        <div id='footer'>
+        <div id='footer' data-testid="footer">
         </div>
     )
 }
