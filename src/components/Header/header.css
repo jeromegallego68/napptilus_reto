@@ -24,14 +24,14 @@
     width: 100px;
 }
 
-/* ================ MENU ================= */
-#header .menu {
+/* ================ MENU DESKTOP ================= */
+#header .menu.desktop {
     display: inline-block;
     vertical-align: middle;
     width: 70%;
 }
 
-#header .menu a {
+#header .menu.desktop a {
     color: var(--color-primary-variant);
 
     text-transform: uppercase;
@@ -43,8 +43,70 @@
     transition: var(--transition);
 }
 
-#header .menu a:hover {
+#header .menu.desktop a:hover {
     opacity: 0.6;
+}
+
+/* ================ MENU MOBILE ================= */
+
+#header .menu.mobile {
+    display: inline-block;
+    vertical-align: top;
+    text-align: right;
+
+    width: 70%;
+}
+
+#header .menu.mobile .mobile-button {
+    font-size: 2rem;
+
+    margin: 1rem 1rem 0 0;
+}
+
+#header .menu.mobile .mobile-pannel {
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+
+    height: 100%;
+    width: 0;
+
+    overflow-x: hidden;
+    transition: var(--transition);
+
+    background-color: var(--color-bg-variant);
+}
+
+#header .menu.mobile .mobile-pannel.open {
+    width: 100%;
+}
+
+#header .menu.mobile .mobile-pannel a {
+    display: block;
+    width: 100%;
+    margin: 2rem 1rem;
+    text-align: left;
+
+    font-size: 1.4rem;
+
+    color: var(--color-primary-variant);
+}
+
+#header .menu.mobile .mobile-pannel a:before {
+    content: ' > '
+}
+
+#header .menu.mobile .mobile-pannel .mobile-pannel__actions {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+#header .menu.mobile .mobile-pannel .mobile-pannel__actions .close-button {
+    color: var(--color-primary-variant);
+    font-size: 1.6rem;
+    margin-left: 1rem;
 }
 
 /* ================ CART ================= */

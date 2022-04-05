@@ -1,13 +1,17 @@
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LOGO from '../../assets/logo.png'
-import { FiShoppingCart } from 'react-icons/fi';
 import Breadcrumbs from '../Breadcrumbs/breadcrumbs';
+import useIsMobile from '../../hooks/useIsMobile';
+import HeaderMenuDesktop from './headerMenuDesktop';
+import HeaderMenuMobile from './headerMenuMobile';
 
 import './header.css'
 
 const Header = () => {
     const cart = useSelector((state) => state.Cart.cart)
+    const isMobile = useIsMobile();
+
     return (
         <header id='header'>
             <div className='logo'>
@@ -15,24 +19,9 @@ const Header = () => {
                     <img src={LOGO} alt="logo" />
                 </NavLink>
             </div>
-            <div className='menu'>
-                <NavLink to={"/"}>
-                    Inicio
-                </NavLink>
-                <NavLink to={"#"}>
-                    Otra pagina 1
-                </NavLink>
-                <NavLink to={"#"}>
-                    Otra pagina 2
-                </NavLink>
-                <NavLink to={"#"}>
-                    Otra pagina 3
-                </NavLink>
-                <div className='cart'>
-                    <FiShoppingCart className='react-icons' />
-                    {cart?.count > 0 && <div className='cart-count'>{cart?.count}</div>}
-                </div>
-            </div>
+
+            {isMobile ? <HeaderMenuMobile cart={cart} /> : <HeaderMenuDesktop cart={cart} />}
+
             <Breadcrumbs />
         </header>
     )
